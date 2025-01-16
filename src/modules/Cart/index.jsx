@@ -67,14 +67,14 @@ export const Cart = () => {
     <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row gap-4">
             <div className="md:w-3/4">
-        <div className="flex sm:justify-between ">
+        <div className="flex sm:justify-between flex-col sm:flex-row ">
         <h1 className="text-2xl font-semibold mb-4">Shopping Cart</h1>
         <h1 className="text-2xl font-semibold mb-4  ">{carts?.length } items</h1>
         </div>
                 <div className="bg-white rounded-lg shadow-md p-6 mb-4">
                     <table className="w-full">
-                        <thead>
-                            <tr>
+                        <thead className="hidden sm:table-header-group">
+                            <tr className=''>
                                 <th className="text-left font-semibold">Product</th>
                                 <th className="text-left font-semibold">Price</th>
                                 <th className="text-left font-semibold">Quantity</th>
@@ -85,14 +85,14 @@ export const Cart = () => {
                             {
                                 carts?.map(cart =>{
                                     return(
-                                        <tr key={cart.id}>
+                                        <tr key={cart.id} className='flex items-center flex-col sm:table-row'>
                                             <td className="py-4">
-                                                <div className="flex items-center">
+                                                <div className="flex items-center flex-col sm:flex-row">
                                                     <img className="h-16 w-16 mr-4" src={cart?.image} alt={cart?.title}/>
                                                     <div className="flex-col">
 
                                                     <p className="font-semibold">{cart?.title}</p>
-                                                    <p className="">{cart?.category}</p>
+                                                    <p className="hidden sm:block">{cart?.category}</p>
                                                     <button className=" border-2 rounded  text-white bg-red-500 hover:text-red-500  hover:bg-white"
                                                     onClick={()=> removeProduct(cart?.id)}>Remove</button>
                                                    
@@ -101,7 +101,7 @@ export const Cart = () => {
                                             </td>
                                             <td className="py-4">${cart?.price}</td>
                                             <td className="py-4">
-                                                <div className="flex items-center">
+                                                <div className="flex items-center ">
                                                     <button className="border rounded-md py-2 px-4 mr-2 cursor-pointer" onClick={()=> handleDec(cart?.id)}>-</button>
                                                     
                                                     <span className="text-center w-8">{cart?.quantity}</span>
@@ -146,7 +146,7 @@ export const Cart = () => {
                     </div>
                     <div className="flex lg:flex-row md:flex-col justify-between mb-2">
                         <span className="font-semibold ">Promo Code</span>
-                        <input type='text' className="outline-black border-2 lg:w-1/2 md:w-full" placeholder='islam' onChange={handlePromoCode}/>
+                        <input type='text' className="outline-black border-2 lg:w-1/2 md:w-full" placeholder='XXXX' onChange={handlePromoCode}/>
                     </div>
 
                     <button className="bg-red-500 text-white py-2 px-4 rounded-lg mt-4 lg:w-1/2 md:w-full">Apply</button>
