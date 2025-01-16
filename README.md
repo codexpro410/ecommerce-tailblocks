@@ -6,7 +6,7 @@ Welcome to the **E-Commerce Website**! This is a fully responsive, modern e-comm
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 ![Screenshot](./screenshot.png)
 
-## Features
+## Features:
 
 - **Responsive Design**: The website is fully responsive and works seamlessly on all devices (mobile, tablet, and desktop).
 - **Dynamic Shopping Cart**: Add, remove, and update products in the cart with real-time calculations.
